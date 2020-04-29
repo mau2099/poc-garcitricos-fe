@@ -1,0 +1,35 @@
+@import './../../assets/styles/Colors.scss';
+
+.navbar__container {
+  display: flex;
+  flex-direction: column;
+  // justify-self: end;
+  margin: 0;
+  height: 100%;
+  background-color: $primary-light;
+}
+.navbar {
+  display: flex;
+  margin: 0;
+  height: 100%;
+  flex-direction: column;
+  padding: 0;
+}
+
+.navbar__item {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid $secondary;
+  }
+}

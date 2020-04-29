@@ -1,4 +1,28 @@
-body {
-  margin: 0;
-  background-color: red;
+@import './../../assets/styles/Colors.scss';
+
+.grid__container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 90px 1fr auto;
+  grid-template-areas: 'header header'
+                       'navbar content'
+                       'footer footer';
+  height: 100%;
 }
+
+.grid__header{
+  grid-area: header;
+}
+
+.grid__content{
+  grid-area: content;
+}
+
+.grid__navbar{
+  grid-area: navbar;
+}
+
+.grid__footer{
+  grid-area: footer;
+}
+

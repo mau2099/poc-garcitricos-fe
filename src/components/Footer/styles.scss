@@ -1,0 +1,13 @@
+@import './../../assets/styles/Colors.scss';
+
+.footer {
+  background-color: $primary-dark;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0.3em;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import './assets/styles/App.scss';
+import App from './routes';
 
-import Layout from './containers/Layout'
-
-ReactDOM.render(<Layout />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
