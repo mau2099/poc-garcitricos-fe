@@ -1,0 +1,13 @@
+html,body{margin:0;padding:0;background-color:#F5F5F6;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;height:100%;width:100%}#app{height:100%}@font-face{font-family:'garcitricos-font';src:url()}
+
+
+
+
+.grid__container{display:grid;grid-template-columns:200px 1fr;grid-template-rows:90px 1fr auto;grid-template-areas:'header header' 'navbar content' 'footer footer';height:100%}.grid__header{grid-area:header}.grid__content{grid-area:content}.grid__navbar{grid-area:navbar}.grid__footer{grid-area:footer}
+
+.header__container{min-height:90px;background-color:#33691e;color:white;display:grid;align-items:center;grid-template-columns:250px 1fr 150px}.header__logo{max-width:auto;margin:0 10px}.logo{width:100%}.user-info{height:100%;width:100%;display:flex;justify-content:center;align-items:center}.user-info:hover{background-color:rgba(0,0,0,0.1)}
+
+.navbar__container{display:flex;flex-direction:column;margin:0;height:100%;background-color:#629749}.navbar{display:flex;margin:0;height:100%;flex-direction:column;padding:0}.navbar__item{height:75px;display:flex;align-items:center;justify-content:center;margin:0;font-size:1.2em;transition:background-color 0.3s;border-bottom:2px solid rgba(0,0,0,0.1);cursor:pointer;color:white;text-decoration:none}.navbar__item:hover{background-color:rgba(0,0,0,0.1);border-bottom:2px solid #cddc39}
+
+.footer{background-color:#003d00;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center}.footer p{margin:0.3em}
+
