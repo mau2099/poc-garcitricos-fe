@@ -37,11 +37,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|jpg)$/,
+        test: /\.(png|gif|jpg|ico)$/,
         use: [
           {
             loader: 'file-loader',
-            options: { name: 'assets/[hash].[ext]' },
+            options: {
+              name: '[hash].[ext]',
+              outputPath: 'assets/',
+            },
           },
         ],
       },
@@ -49,11 +52,13 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    port: 2099,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
+      favicon: './favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',

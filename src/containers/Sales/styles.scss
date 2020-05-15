@@ -1,0 +1,91 @@
+@import './../../assets/styles/Utils.scss';
+@import './../../assets/styles/Colors.scss';
+
+.sales__container {
+  padding: 10px;
+  box-sizing: border-box;
+
+  .title {
+    margin: 0;
+    color: $primary-dark;
+    text-shadow: $card;
+  }
+
+  .sales__form {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+  }
+  input {
+    @extend .input;
+    font-size: initial;
+  }
+
+  button {
+    @extend .button;
+    width: auto;
+    grid-column: span 1;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.sales__records {
+  .record {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+    border-bottom: 1px solid $primary;
+    span {
+      @extend .input;
+      margin: 0;
+      margin-left: 0.6em;
+      height: 15px;
+      font-size: 16px;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+  }
+}
+.text-primary {
+  color: $primary;
+  font-weight: bold;
+}
+.text-secondary {
+  color: $background-dark;
+  font-style: italic;
+}
+.total {
+  color: $primary-dark;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 480px) {
+  .sales__container {
+    .sales__form {
+      grid-template-columns: minmax(50px, 1fr);
+    }
+  }
+
+  .sales__records {
+    .record {
+      grid-template-columns: repeat(3, minmax(50px, 1fr));
+      span {
+        font-size: 14px;
+      }
+
+      .price,
+      .quantity {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+}

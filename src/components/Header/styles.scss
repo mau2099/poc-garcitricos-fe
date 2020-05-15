@@ -1,37 +1,86 @@
 @import './../../assets/styles/Colors.scss';
 
 .header__container {
-  min-height: 90px;
-  background-color: $primary;
+  background-color: $primary-dark;
   color: white;
   display: grid;
   align-items: center;
-  grid-template-columns: 250px 1fr 150px;
+  grid-template-columns: 1fr 120px;
+  box-shadow: $card;
 }
 .header__logo {
   max-width: auto;
   margin: 0 10px;
 }
 .logo {
-  width: 100%;
+  width: 230px;
+  box-shadow: $card;
 }
 
-.user-info {
+.user-info__container {
   height: 100%;
+  color: white;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: $hover;
   }
 }
 
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.navbar__toggle {
+  display: none;
+}
 @media screen and (max-width: 1024px) {
+  .avatar {
+    width: 40px;
+  }
 }
 @media screen and (max-width: 768px) {
+  .header__container {
+    grid-template-columns: 50px 1fr 70px;
+  }
+  .header__logo {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: 230px;
+  }
+  .logo {
+    width: 230px;
+  }
+
+  .navbar__toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 480px) {
+  .avatar {
+    width: 35px;
+  }
+  .header__container {
+    grid-template-columns: 50px 1fr 50px;
+  }
 }
 @media screen and (max-width: 320px) {
+  .header__container {
+    grid-template-columns: 40px 1fr 40px;
+  }
+  .header__logo {
+    width: 190px;
+  }
+  .logo {
+    width: 190px;
+  }
+  .avatar {
+    width: 30px;
+  }
 }

@@ -1,12 +1,15 @@
 @import './../../assets/styles/Colors.scss';
 
 .navbar__container {
+  position: sticky;
   display: flex;
   flex-direction: column;
+  top: 80px;
   // justify-self: end;
   margin: 0;
   height: 100%;
-  background-color: $primary-light;
+  background-color: $primary;
+  box-shadow: $card;
 }
 .navbar {
   display: flex;
@@ -20,16 +23,38 @@
   height: 75px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   margin: 0;
-  font-size: 1.2em;
+  padding-left: 10px;
+  font-size: 1em;
   transition: background-color 0.3s;
-  border-bottom: 2px solid rgba(0,0,0,0.1);
+  border-bottom: 2px solid $hover;
+  overflow: hidden;
   cursor: pointer;
   color: white;
   text-decoration: none;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: $hover;
     border-bottom: 2px solid $secondary;
   }
+}
+
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+  .navbar__container {
+    position: absolute;
+    left: -127px;
+    height: auto;
+    transition: all 0.3s;
+    z-index: 1;
+    // top: 80px;
+  }
+  .navbar__container.opened {
+    left: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 320px) {
 }

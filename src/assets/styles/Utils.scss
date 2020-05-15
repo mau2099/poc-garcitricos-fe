@@ -1,0 +1,61 @@
+@import './Colors.scss';
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.input {
+  background-color: white;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 1.1em;
+  opacity: 0.8;
+  padding-left: 0.5em;
+  outline: none;
+  max-width: 100%;
+  width: initial;
+  min-height: 35px;
+  transition: all 0.3s;
+  margin: 0.6em;
+  display: block;
+  box-sizing: border-box;
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+.button {
+  background-color: $secondary-light;
+  border: 0;
+  font-size: 16px;
+  padding: 0.5em;
+  box-shadow: $card;
+  color: black;
+  font-weight: 500;
+  width: 100%;
+  margin: 0.5em;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  cursor: pointer;
+  &:focus {
+    transform: scale(1.05);
+  }
+}
+
+.link {
+  color: $secondary-dark;
+  font-size: 12px;
+  font-weight: bold;
+  align-self: flex-end;
+  display: inline-block;
+}
+
+.label {
+  color: $secondary-dark;
+  display: inline-block;
+}

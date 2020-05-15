@@ -2,8 +2,8 @@
 
 .grid__container {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 90px 1fr auto;
+  grid-template-columns: 130px 1fr;
+  grid-template-rows: 80px 1fr auto;
   grid-template-areas: 'header header'
                        'navbar content'
                        'footer footer';
@@ -16,6 +16,8 @@
 
 .grid__content{
   grid-area: content;
+  overflow-y: auto;
+  width: 100%;
 }
 
 .grid__navbar{
@@ -26,3 +28,23 @@
   grid-area: footer;
 }
 
+@media screen and (max-width: 1024px) { 
+  
+}
+@media screen and (max-width: 768px) { 
+  
+.grid__container {
+  grid-template-columns: 70px 100px 1fr;
+  grid-template-rows: 80px 1fr auto;
+  grid-template-areas: 'header header header'
+                       'content content content'
+                       'footer footer footer';
+  height: 100%;
+}
+}
+@media screen and (max-width: 480px) { 
+  
+}
+@media screen and (max-width: 320px) { 
+  
+}

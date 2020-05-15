@@ -3,8 +3,8 @@ import './styles.scss';
 const Footer = (props) => {
   return (
     <footer className={`${props.className} footer`}>
-      <p>All left reserved.</p>
-      <p>Copyright © 2020</p>
+      <p>Copyright © {new Date().getFullYear()} - Garcítricos</p>
+      <a>@Mau2099</a>
     </footer>
   );
 };

@@ -5,22 +5,29 @@ import {
   MdPeople,
   MdPeopleOutline,
 } from 'react-icons/md';
+import { GiMoneyStack } from 'react-icons/gi';
 
+const size = 19;
 const folders = [
   {
-    label: 'Balance',
-    icon: <MdAccountBalanceWallet />,
-    to: '/balance',
+    label: 'Ventas',
+    icon: <GiMoneyStack size={size} />,
+    to: '/ventas',
+  },
+  {
+    label: 'Tablero',
+    icon: <MdAccountBalanceWallet size={size} />,
+    to: '/tablero',
   },
   {
     label: 'Clientes',
-    icon: <MdPeople />,
+    icon: <MdPeople size={size} />,
     to: '/clientes',
   },
   {
     label: 'Proveedores',
-    icon: <MdPeopleOutline />,
-    to: '/proveedres',
+    icon: <MdPeopleOutline size={size} />,
+    to: '/proveedores',
   },
 ];
 
