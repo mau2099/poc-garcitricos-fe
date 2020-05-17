@@ -1,15 +1,14 @@
 /* eslint-disable consistent-return */
-import actions from './../actions/actionsEnum';
-import initialState from './../../initialState';
-import { login } from '../actions';
+import actions from '../actions/actionsEnum';
+import initialState from '../../initialState';
 
 const reducer = (state = initialState, payload) => {
-  console.log(`---> REDUCER Executed : ${payload.type}`, {
+  console.info(`---> REDUCER Executed : ${payload.type}`, {
     state,
     payload,
   });
   if (payload.error) {
-    console.log('-->Error controlado');
+    console.error('-->Error controlado');
     return;
   }
   switch (payload.type) {
@@ -35,6 +34,14 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         user: payload.user,
+        hasUser: true,
+      };
+
+    case actions.SIGNOUT:
+      return {
+        ...state,
+        user: { email: '', password: '' },
+        hasUser: false,
       };
     default:
       return state;

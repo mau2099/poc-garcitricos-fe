@@ -1,21 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaTwitter } from 'react-icons/fa';
-import Divider from '@material-ui/core/Divider';
 import { FormControl, TextField } from '@material-ui/core';
 import './styles.scss';
-import background from './../../assets/static/limes.jpg';
-import logo from './../../assets/static/garcitricos.png';
-import { login } from './../../actions/index';
+import background from '../../assets/static/limes.jpg';
+import logo from '../../assets/static/garcitricos.png';
+import { login } from './../../actions';
 import { GlobalStateContext } from './../../context/GlobalStateContext';
 
 const Login = (props) => {
-  const [loginForm, setLogin] = useState({ user: '', password: '' });
+  const [loginForm, setLogin] = useState({ email: '', password: '' });
   const [state, setState] = React.useContext(GlobalStateContext);
 
   const handleSubmit = (e) => {
-    console.log(loginForm);
-
     e.preventDefault();
     setState(login(loginForm));
     props.history.push('/ventas');
@@ -57,16 +54,18 @@ const Login = (props) => {
           <label htmlFor='remember'>Recordar mi cuenta</label>
           <input type='checkbox' name='remember' id='remember' />
         </div>
-        <button type='submit'>Ingresar</button>
+        <button type='submit'>Ingresar con usuario</button>
 
-        <Divider variant='fullWidth' />
-
-        <span className='flex-center'>
-          Ingresar con: &nbsp;
+        <hr className='divider' />
+        <button className='button' type='button'>
           <FaGoogle />
-          &nbsp;&nbsp;
+          &nbsp;Ingresar con Google
+        </button>
+        <button className='button' type='button'>
           <FaTwitter />
-        </span>
+          &nbsp;Ingresar con Twitter
+        </button>
+
         <Link to='/recover'>olivdé mi contraseña</Link>
       </form>
     </section>

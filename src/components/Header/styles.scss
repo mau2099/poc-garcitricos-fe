@@ -24,6 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
   &:hover {
     background-color: $hover;
   }
@@ -62,6 +64,34 @@
     align-items: center;
   }
 }
+
+.user__menu {
+  position: absolute;
+  top: 80px;
+  margin: 0;
+  padding: 0;
+  background: $primary;
+  list-style: none;
+  width: 120px;
+  z-index: 1;
+  li,
+  a {
+    display: list-item;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background: $primary;
+    text-decoration: none;
+    max-width: 500px;
+    padding: 5px;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      background-color: $hover;
+      border-bottom: 2px solid $secondary-light;
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   .avatar {
     width: 35px;

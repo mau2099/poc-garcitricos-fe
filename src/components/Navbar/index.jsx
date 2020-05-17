@@ -7,7 +7,6 @@ import { GlobalStateContext } from '../../context/GlobalStateContext';
 const Navbar = (props) => {
   const [state, setState] = React.useContext(GlobalStateContext);
   useEffect(() => {
-    console.log('Navbar state', state);
   }, [state]);
   return (
     <nav className={`navbar__container ${state.navbar && 'opened'}`}>

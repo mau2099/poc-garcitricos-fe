@@ -1,16 +1,20 @@
 import React, { createContext, useReducer } from 'react';
+import ContextDevTool from 'react-context-devtool';
 import initialState from './../../initialState';
 import reducer from './../reducers/';
 
 export const GlobalStateContext = createContext();
 
-export const GlobalContextProvider = (props) => {
+export const GlobalContextProvider = ({ children }) => {
   const [state, setState] = useReducer(reducer, initialState);
-  // console.log("State Changed", state);
-
   return (
     <GlobalStateContext.Provider value={[state, setState]}>
-      {props.children}
+      <ContextDevTool
+        context={GlobalStateContext}
+        id='uniqContextId'
+        displayName='Context Garcitricos'
+      />
+      {children}
     </GlobalStateContext.Provider>
   );
 };

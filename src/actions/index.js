@@ -3,7 +3,7 @@ import actions from './actionsEnum';
 const addLabel = (labelName) => {
   return {
     type: actions.ADD_LABEL,
-    labelName: labelName,
+    labelName,
   };
 };
 
@@ -20,4 +20,10 @@ const toggleNavbar = () => {
   };
 };
 
-export { addLabel, toggleNavbar, login };
+const signOut = () => {
+  return {
+    type: actions.SIGNOUT,
+  };
+};
+
+export { addLabel, toggleNavbar, login, signOut };
