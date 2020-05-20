@@ -7,31 +7,47 @@ import background from '../../assets/static/limes.jpg';
 import logo from '../../assets/static/garcitricos.png';
 import { login } from './../../actions';
 import { GlobalStateContext } from './../../context/GlobalStateContext';
+import { auth, googleProvider } from './../../utils/firebase';
 
 const Login = (props) => {
   const [loginForm, setLogin] = useState({ email: '', password: '' });
   const [state, setState] = React.useContext(GlobalStateContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setState(login(loginForm));
-    props.history.push('/ventas');
+  const style = {
+    backgroundImage: `url(${background})`,
   };
+
   const handleChange = (e) => {
     e.preventDefault();
     setLogin({ ...loginForm, [e.target.name]: e.target.value });
   };
 
-  const style = {
-    backgroundImage: `url(${background})`,
+  const handleLoginEmail = (e) => {
+    e.preventDefault();
+    auth()
+      .createUserWithEmailAndPassword(loginForm.email, loginForm.password)
+      .then(({ user }) => {
+        setState(login({ ...user.providerData[0] }));
+        console.log('google user info', user);
+        props.history.push('/');
+      })
+      .catch((err) => console.log(err));
+    setState(login(loginForm));
+    props.history.push('/ventas');
+  };
+  const handleLoginGoogle = () => {
+    auth()
+      .signInWithPopup(provider)
+      .then(({ user }) => {
+        setState(login({ ...user.providerData[0] }));
+        console.log('google user info', user);
+        props.history.push('/');
+      });
   };
 
   return (
     <section className='login__container' style={style}>
-      {/* <figure className='login__background'>
-        <img src={background} alt='limes background garcitricos' />
-      </figure> */}
-      <form className='login__form' onSubmit={handleSubmit}>
+      <form className='login__form' onSubmit={handleLoginEmail}>
         <img className='login__logo' src={logo} alt='logo garcitricos' />
         <h2 className='login__title'>Inicia Sesión</h2>
         <input
@@ -57,7 +73,7 @@ const Login = (props) => {
         <button type='submit'>Ingresar con usuario</button>
 
         <hr className='divider' />
-        <button className='button' type='button'>
+        <button className='button' type='button' onClick={handleLoginGoogle}>
           <FaGoogle />
           &nbsp;Ingresar con Google
         </button>

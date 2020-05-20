@@ -11,7 +11,14 @@ import { toggleNavbar, signOut } from '../../actions';
 
 const Header = (props) => {
   const [state, setState] = React.useContext(GlobalStateContext);
-  const [gravatarHash, setGravatar] = React.useState('');
+  const [loggedUser, setloggedUser] = React.useState({
+    displayName: 'M',
+    email: '',
+    phoneNumber: '',
+    photoURL: '',
+    providerId: '',
+    uid: '',
+  });
   const [showMenu, setMenu] = React.useState(false);
 
   const handleClick = (e) => {
@@ -24,7 +31,11 @@ const Header = (props) => {
   };
 
   useEffect(() => {
-    setGravatar(gravatar(state.user.email));
+    if (state.user.photoURL !== '') {
+      setloggedUser(state.user);
+    } else {
+      setloggedUser({ ...loggedUser, photoURL: gravatar(state.user.email) });
+    }
   }, [state.user]);
 
   return (
@@ -41,7 +52,12 @@ const Header = (props) => {
 
       <span className='user-info__container' onClick={() => setMenu(!showMenu)}>
         {state.hasUser ? (
-          <img className='avatar' src={gravatarHash} alt={state.user.email} />
+          <img
+            className='avatar'
+            src={loggedUser.photoURL}
+            alt={loggedUser.displayName || loggedUser.email}
+            title={loggedUser.displayName || loggedUser.email}
+          />
         ) : (
           <MdPerson size={32} />
         )}
@@ -49,6 +65,10 @@ const Header = (props) => {
           <ul className='user__menu'>
             {state.hasUser ? (
               <>
+                <li>
+                  Bienvenido(a)
+                  {loggedUser.displayName}
+                </li>
                 <Link Link to='/profile'>
                   Mi cuenta
                 </Link>
