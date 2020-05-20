@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'assets/[hash]-bundle.js',
     publicPath: '/',
   },
   resolve: {
@@ -44,7 +44,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[hash].[ext]',
-              outputPath: 'assets/',
+              outputPath: 'assets/static/',
             },
           },
         ],
@@ -62,7 +62,7 @@ module.exports = {
       favicon: './favicon.ico',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: 'assets/[hash]-[name].css',
     }),
   ],
 };

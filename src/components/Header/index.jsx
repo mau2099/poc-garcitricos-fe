@@ -66,7 +66,7 @@ const Header = (props) => {
             {state.hasUser ? (
               <>
                 <li>
-                  Bienvenido(a)
+                  Bienvenido(a)&nbsp;
                   {loggedUser.displayName}
                 </li>
                 <Link Link to='/profile'>

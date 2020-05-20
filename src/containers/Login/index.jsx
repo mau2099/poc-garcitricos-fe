@@ -35,9 +35,10 @@ const Login = (props) => {
     setState(login(loginForm));
     props.history.push('/ventas');
   };
+
   const handleLoginGoogle = () => {
     auth()
-      .signInWithPopup(provider)
+      .signInWithPopup(googleProvider)
       .then(({ user }) => {
         setState(login({ ...user.providerData[0] }));
         console.log('google user info', user);
