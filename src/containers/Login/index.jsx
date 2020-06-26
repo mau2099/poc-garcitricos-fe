@@ -32,8 +32,8 @@ const Login = (props) => {
         props.history.push('/');
       })
       .catch((err) => console.log(err));
-    setState(login(loginForm));
-    props.history.push('/ventas');
+    // setState(login(loginForm));
+    // props.history.push('/ventas');
   };
 
   const handleLoginGoogle = () => {

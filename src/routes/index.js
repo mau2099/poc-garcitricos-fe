@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import Layout from './containers/Layout';
-import Dashboard from './../containers/Dashboard/';
-import Home from './../containers/Home/';
-import Sales from './../containers/Sales/';
-import NotFound from './../containers/NotFound';
+import Dashboard from '../containers/Dashboard';
+import Home from '../containers/Home';
+import Sales from '../containers/Sales';
+import NotFound from '../containers/NotFound';
 import Layout from '../containers/Layout';
 import Login from '../containers/Login';
 import Profile from '../containers/Profile';
